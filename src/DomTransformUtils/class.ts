@@ -10,9 +10,9 @@ const DomTransformUtils: IDomTransformUtilsConstructor = class
     implements IDomTransformUtils
 {
     static collectionToArray = <T extends HTMLElement>(
-        list: NodeListOf<T> | HTMLCollectionOf<T>
+        list: NodeList | HTMLCollection
     ): Array<T> => {
-        return Array.from<T>(list);
+        return Array.from(list) as Array<T>;
     };
 };
 
