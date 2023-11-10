@@ -1,6 +1,6 @@
 {
     "name": "@js-ninja/dom-utils",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Utility library for working with DOM elements in JavaScript",
     "homepage": "https://github.com/rdn-js-ninja/dom-utils#readme",
     "repository": {
