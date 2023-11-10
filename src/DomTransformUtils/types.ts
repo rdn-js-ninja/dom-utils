@@ -8,7 +8,7 @@ export interface IDomTransformUtilsConstructor {
      * @returns Array of DOM elements.
      */
     collectionToArray: <T extends HTMLElement>(
-        list: NodeListOf<T> | HTMLCollectionOf<T>
+        list: NodeList | HTMLCollection
     ) => Array<T>;
 }
 

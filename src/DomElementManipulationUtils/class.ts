@@ -13,11 +13,11 @@ import DomWindowUtils from "../DomWindowUtils";
 const DomElementManipulationUtils: IDomElementManipulationUtilsConstructor = class
     implements IDomElementManipulationUtils
 {
-    public static parent = (element: HTMLElement): HTMLElement | null => {
+    public static parent = (element) => {
         return element.parentElement;
     };
 
-    public static remove = (element: HTMLElement): void => {
+    public static remove = (element) => {
         const parent = this.parent(element);
 
         if (!parent) {
@@ -49,16 +49,11 @@ const DomElementManipulationUtils: IDomElementManipulationUtilsConstructor = cla
         return;
     }) as THTML;
 
-    public static create = <K extends keyof HTMLElementTagNameMap>(
-        tag: K
-    ): HTMLElementTagNameMap[K] => {
+    public static create = (tag) => {
         return DomWindowUtils.document().createElement(tag);
     };
 
-    public static insertBefore = (
-        newElement: HTMLElement,
-        targetElement: HTMLElement
-    ): void => {
+    public static insertBefore = (newElement, targetElement) => {
         const parent = this.parent(targetElement);
 
         if (parent) {
@@ -66,10 +61,7 @@ const DomElementManipulationUtils: IDomElementManipulationUtilsConstructor = cla
         }
     };
 
-    public static insertAfter = (
-        newElement: HTMLElement,
-        targetElement: HTMLElement
-    ): void => {
+    public static insertAfter = (newElement, targetElement) => {
         const parent = this.parent(targetElement);
 
         if (parent) {
@@ -83,7 +75,7 @@ const DomElementManipulationUtils: IDomElementManipulationUtilsConstructor = cla
         }
     };
 
-    public static wrap = (element: HTMLElement, wrapper: HTMLElement): void => {
+    public static wrap = (element, wrapper) => {
         const parent = this.parent(element);
 
         if (parent) {
@@ -93,7 +85,7 @@ const DomElementManipulationUtils: IDomElementManipulationUtilsConstructor = cla
         }
     };
 
-    public static unwrap = (wrapper: HTMLElement): void => {
+    public static unwrap = (wrapper) => {
         const parent = this.parent(wrapper);
 
         if (parent) {

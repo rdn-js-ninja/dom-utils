@@ -6,23 +6,15 @@ import type { IDomEventUtils, IDomEventUtilsConstructor } from "./types";
 const DomEventUtils: IDomEventUtilsConstructor = class
     implements IDomEventUtils
 {
-    public static on = (
-        element: HTMLElement,
-        event: string,
-        handler: EventListenerOrEventListenerObject
-    ) => {
+    public static on = (element, event, handler) => {
         element.addEventListener(event, handler);
     };
 
-    public static off = (
-        element: HTMLElement,
-        event: string,
-        handler: EventListenerOrEventListenerObject
-    ) => {
+    public static off = (element, event, handler) => {
         element.removeEventListener(event, handler);
     };
 
-    public static dispatch = (element: HTMLElement, event: string) => {
+    public static dispatch = (element, event) => {
         element.dispatchEvent(new Event(event));
     };
 };

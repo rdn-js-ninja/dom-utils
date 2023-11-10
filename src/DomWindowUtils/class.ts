@@ -6,23 +6,23 @@ import type { IDomWindowUtils, IDomWindowUtilsConstructor } from "./types";
 const DomWindowUtils: IDomWindowUtilsConstructor = class
     implements IDomWindowUtils
 {
-    static document = (): Document => {
+    static document = () => {
         return window.document;
     };
 
-    static window = (): Window => {
+    static window = () => {
         return window;
     };
 
-    static body = (): HTMLElement => {
+    static body = () => {
         return this.document().body;
     };
 
-    static computedStyles = (element: HTMLElement): CSSStyleDeclaration => {
+    static computedStyles = (element) => {
         return window.getComputedStyle(element);
     };
 
-    static isInViewport = (element: HTMLElement): boolean => {
+    static isInViewport = (element) => {
         const { top, left, bottom, right } = this.rect(element);
 
         return (
@@ -34,7 +34,7 @@ const DomWindowUtils: IDomWindowUtilsConstructor = class
         );
     };
 
-    static rect = (element: HTMLElement): DOMRect => {
+    static rect = (element) => {
         return element.getBoundingClientRect();
     };
 };

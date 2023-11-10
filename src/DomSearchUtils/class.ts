@@ -10,39 +10,36 @@ import DomTransformUtils from "../DomTransformUtils";
 const DomSearchUtils: IDomSearchUtilsConstructor = class
     implements IDomSearchUtils
 {
-    public static find<T extends HTMLElement>(
+    public static find = <T extends HTMLElement>(
         selector: string,
         container: HTMLElement | Document | null
-    ): T | null {
+    ): T | null => {
         const context: HTMLElement | Document =
             container || DomWindowUtils.document();
 
         return context.querySelector<T>(selector);
-    }
+    };
 
-    public static findList<T extends HTMLElement>(
+    public static findList = <T extends HTMLElement>(
         selector: string,
         container: HTMLElement | Document | null
-    ): Array<T> {
+    ): Array<T> => {
         const context: HTMLElement | Document =
             container || DomWindowUtils.document();
 
         const nodeList = context.querySelectorAll<T>(selector);
 
         return DomTransformUtils.collectionToArray<T>(nodeList);
-    }
+    };
 
-    public static closest<T extends HTMLElement>(
+    public static closest = <T extends HTMLElement>(
         element: HTMLElement,
         selector: string
-    ): T | null {
+    ): T | null => {
         return element.closest<T>(selector);
-    }
+    };
 
-    public static isDescendantOf(
-        element: HTMLElement,
-        parentElement: HTMLElement
-    ): boolean {
+    public static isDescendantOf = (element, parentElement) => {
         let currentElement: HTMLElement | null = element;
 
         while (currentElement) {
@@ -54,7 +51,7 @@ const DomSearchUtils: IDomSearchUtilsConstructor = class
         }
 
         return false;
-    }
+    };
 };
 
 export default DomSearchUtils;
