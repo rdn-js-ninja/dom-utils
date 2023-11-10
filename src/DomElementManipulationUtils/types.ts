@@ -69,7 +69,7 @@ export interface IDomElementManipulationUtilsConstructor {
      * @param element - DOM element.
      * @returns Copy of the DOM element.
      */
-    clone: (element: HTMLElement) => HTMLElement;
+    clone: <T extends HTMLElement>(element: T) => T;
 }
 
 /**
